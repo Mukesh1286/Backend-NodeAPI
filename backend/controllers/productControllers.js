@@ -24,7 +24,17 @@ export const getProducts = catchAsyncErrors(async (req, res) => {
   //Decending order
   // { $sort: { minPrice: -1}}
 
- { $match: {maxPrice: {$gte: 60}}}
+ { $match: {maxPrice: {$gte: 60}}},
+
+
+ {
+  $project: {
+    avgRating: 1, 
+    productCount: 1, 
+    priceTotal:1
+  }
+}
+
   ]);
   
   res.status(200).json({
