@@ -26,6 +26,7 @@ export const getProducts = catchAsyncErrors(async (req, res) => {
 
  { $match: {maxPrice: {$gte: 60}}},
 
+
  {
   $project: {
     avgRating: 1, 
